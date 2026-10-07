@@ -32,3 +32,12 @@ select m.nome_marin, EXTRACT(year from r.data_res) AS "ano" FROM marinheiros m
 select cor, count(*) FROM barcos
 	GROUP BY cor
 	ORDER BY cor;
+
+
+select m.nome, p.nome FROM medico m
+	INNER JOIN atende a
+	ON m.crm = a.crm
+	INNER JOIN paciente p
+	ON a.cpf = p.cpf
+
+	WHERE a.dtaConsulta > '11/11/2025'
